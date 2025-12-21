@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Portfolio Theme Toggle</title>
+</head>
+
+<body id="body" style="background:white; color:black;">
+
+    <header id="header" style="padding:20px; border-bottom:2px solid black;">
+        <h1>Tahajim Islam</h1>
+
+        <nav>
+            <a href="#about">About</a> |
+            <a href="#education">Education</a> |
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <button id="themeBtn">Switch to Dark Mode</button>
+
+    <!-- Content -->
+    <section id="content" style="padding:20px;">
+            <p>
+                I am a passionate computer science student interested in web development,
+            software engineering, and problem-solving. I am currently preparing for internship opportunities to gain real-world experience and improve my technical skills.I enjoy learning new technologies and working on real-world projects.
+            </p>
+    </section>
+
+    <footer id="footer" style="padding:20px; border-top:2px solid black;">
+        <section id="contact">
+            <h2>Contact Me</h2>
+
+            <form action="#" method="post">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name"><br><br>
+
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email"><br><br>
+
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="4"></textarea><br><br>
+
+                <input type="submit" value="Send Message">
+            </form>
+        </section>
+    </footer>
+
+<script>
+
+    // Current Theme Control Variable
+    let darkMode = false;
+
+    const body = document.getElementById("body");
+    const header = document.getElementById("header");
+    const content = document.getElementById("content");
+    const footer = document.getElementById("footer");
+    const button = document.getElementById("themeBtn");
+
+    button.addEventListener("click", function(){
+
+        // SWITCH TO DARK MODE
+        if(darkMode === false){
+
+            body.style.background = "black";
+            body.style.color = "white";
+
+            header.style.borderBottom = "2px solid white";
+            footer.style.borderTop = "2px solid white";
+
+            button.innerText = "Switch to Light Mode";
+
+            darkMode = true;
+        }
+
+        // SWITCH TO LIGHT MODE
+        else{
+
+            body.style.background = "white";
+            body.style.color = "black";
+
+            header.style.borderBottom = "2px solid black";
+            footer.style.borderTop = "2px solid black";
+
+            button.innerText = "Switch to Dark Mode";
+
+            darkMode = false;
+        }
+
+    });
+
+</script>
+
+</body>
+</html>
