@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Student Portal Signup</title>
+</head>
+
+<body>
+
+    <h2>Student Portal Signup</h2>
+
+    <form id="signupForm" action="#" method="POST">
+
+        <label>Full Name:</label><br>
+        <input type="text" id="name"><br>
+        <span id="nameError"></span><br><br>
+
+        <label>Email:</label><br>
+        <input type="text" id="email"><br>
+        <span id="emailError"></span><br><br>
+
+        <label>Password:</label><br>
+        <input type="password" id="password"><br>
+        <span id="passwordError"></span><br><br>
+
+        <label>Confirm Password:</label><br>
+        <input type="password" id="confirmPassword"><br>
+        <span id="confirmError"></span><br><br>
+
+        <label>Phone Number:</label><br>
+        <input type="text" id="phone"><br>
+        <span id="phoneError"></span><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <h3 id="success"></h3>
+
+    <script>
+                const form = document.getElementById("signupForm");
+
+        form.addEventListener("submit", function(event){
+
+            let isValid = true;
+
+            document.getElementById("nameError").innerText = "";
+            document.getElementById("emailError").innerText = "";
+            document.getElementById("passwordError").innerText = "";
+            document.getElementById("confirmError").innerText = "";
+            document.getElementById("phoneError").innerText = "";
+            document.getElementById("success").innerText = "";
+
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let password = document.getElementById("password").value;
+            let confirmPassword = document.getElementById("confirmPassword").value;
+            let phone = document.getElementById("phone").value.trim();
+
+            if(name === ""){
+                document.getElementById("nameError").innerText = "Full name required!";
+                isValid = false;
+            }
+
+            if(email === "" || !(email.includes("@") && email.includes("."))){
+                document.getElementById("emailError").innerText = "Invalid email format!";
+                isValid = false;
+            }
+
+            if(password.length < 6){
+                document.getElementById("passwordError").innerText = "Min 6 characters needed!";
+                isValid = false;
+            }
+
+            if(password !== confirmPassword){
+                document.getElementById("confirmError").innerText = "Password does not match!";
+                isValid = false;
+            }
+
+            if(phone === "" || isNaN(phone)){
+                document.getElementById("phoneError").innerText = "Phone must be numbers!";
+                isValid = false;
+            }
+
+            if(!isValid){
+                event.preventDefault();
+            } else {
+                event.preventDefault();
+                document.getElementById("success").innerText = "Registration Successful!";
+                form.reset();
+            }
+
+        });
+    </script>
+
+</body>
+</html>
