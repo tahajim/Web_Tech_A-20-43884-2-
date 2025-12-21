@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Travel Banner Slider</title>
+</head>
+
+<body>
+
+    <h2>Beautiful Travel Destinations</h2>
+
+    <img id="banner"  width="1000" height="600">
+
+    <br><br><br>
+
+    <button id="prevBtn">Previous</button>
+    <button id="nextBtn">Next</button>
+
+    <script>
+
+        let images = [
+            "https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg",
+            "https://images.pexels.com/photos/237272/pexels-photo-237272.jpeg",
+            "https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg",
+            "https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg"
+        ];
+
+        let index = 0;
+
+        document.getElementById("banner").src = images[index];
+
+        document.getElementById("nextBtn").addEventListener("click", function(){
+
+            index++;
+
+            if(index === images.length){
+                index = 0;
+            }
+
+            document.getElementById("banner").src = images[index];
+        });
+
+        document.getElementById("prevBtn").addEventListener("click", function(){
+
+            index--;
+
+            if(index < 0){
+                index = images.length - 1;
+            }
+
+            document.getElementById("banner").src = images[index];
+        });
+
+        setInterval(function(){
+
+            index++;
+
+            if(index === images.length){
+                index = 0;
+            }
+
+            document.getElementById("banner").src = images[index];
+
+        }, 3000);
+
+    </script>
+
+</body>
+</html>
